@@ -1,0 +1,39 @@
+
+<div class="container">
+  <h2>Task Lists</h2>
+              
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Status</th>
+        
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskList">
+        
+          <td>{{task.task}}</td>
+          <td *ngIf="task.status==1">Completed</td>
+          <td *ngIf="task.status==1">
+            <button (click)="completed(task.id)" class="btn btn-info" disabled>Mark As Completed</button>&nbsp;
+            <button (click)="deleteTask(task.id)" class="btn btn-danger">Delete</button>
+          </td>
+        
+        
+          
+          <td *ngIf="!task.status==1">Not Completed</td>
+          <td *ngIf="!task.status==1">
+            <button (click)="completed(task.id)" class="btn btn-info">Mark As Completed</button>&nbsp;
+            <button (click)="deleteTask(task.id)" class="btn btn-danger">Delete</button>
+          </td>
+      
+        
+        
+          
+      </tr>
+    </tbody>
+  </table>
+  <a href="addtask" class="btn btn-success">Add Task</a>
+</div>
